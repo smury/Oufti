@@ -5352,7 +5352,7 @@ elseif  alg==3
 
     % principal components analysis
     data = [reshape(cellArray2(:,1,:),N,[]);reshape(cellArray2(:,2,:),N,[])]';
-    [coefPCA,scorePCA,latPCA] = princomp(data);
+    [coefPCA,scorePCA,latPCA] = pca(data);
     disp('PCA completed')
     
 end

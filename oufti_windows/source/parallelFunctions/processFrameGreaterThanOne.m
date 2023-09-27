@@ -286,7 +286,8 @@ try
                 waitForState(newJob, 'finished');
                 outputMessages = get(alltasks, 'CommandWindowOutput');
             else
-                set(alltasks, 'CaptureDiary', false);
+                %set(alltasks, 'CaptureDiary', false);%commeted out by Sean
+                %Murray 27.09.2023
                 submit(newJob);
                 disp('Awaiting results');
                 wait(newJob);

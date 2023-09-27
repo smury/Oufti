@@ -41,7 +41,7 @@ if ~isfield(cellList,'meshData')
             if cell<=length(cellList{frame}) && ~isempty(cellList{frame}{cell}) && ...
                 length(cellList{frame}{cell}.mesh)>4 && isfield(cellList{frame}{cell},'spots')
             cellLength = [cellLength cellList{frame}{cell}.length];
-            numberoffoci = [numberoffoci length(cellList{frame}{cell}.spots.magnitude)];
+            numberoffoci = [numberoffoci length(cellList{frame}{cell}.spots.l)];
             end
         end
     end
@@ -52,7 +52,7 @@ else
             cellStructure = oufti_getCellStructure(cell,frame,cellList);
             if oufti_doesCellStructureHaveMesh(cell,frame,cellList) && isfield(cellStructure,'spots')
             cellLength = [cellLength cellStructure.length];
-            numberoffoci = [numberoffoci length(cellStructure.spots.magnitude)];
+            numberoffoci = [numberoffoci length(cellStructure.spots.l)];
             end
         end
     end

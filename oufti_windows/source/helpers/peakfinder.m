@@ -147,6 +147,7 @@ for frame=1:length(cellList)
                 end
                 
                 % combine closely located spots (closer than mindistnew)
+                lnew = [];
                 if ~isempty(fa)
                     l = cellList{frame}{cell}.lengthvector(round(fa));
                     sptdist = l(2:end)-l(1:end-1);

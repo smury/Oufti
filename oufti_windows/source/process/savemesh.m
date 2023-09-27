@@ -32,6 +32,7 @@ try
     cellListN = [];
     isMicroFluidic = get(handles.highThroughput,'value');
     if isempty(filename), return; end
+    if isempty(listOfCells), return; end
     if ~isfield(cellList,'meshData'),cellList = oufti_makeNewCellListFromOld(cellList);end
     cellListN = cellfun(@length,cellList.meshData);
     nonEmptyFrame = ~cellfun(@isempty,cellList.meshData);

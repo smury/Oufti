@@ -192,7 +192,7 @@ if imsizes(1,1) < 1600 || imsizes(1,2) < 1600 || p.algorithm == 1
             newJob = createJob(sched);
         else
             newJob = createJob(sched);
-            set(newJob,'AutoAttachFiles', false);
+            set(newJob,'AutoAttachFiles', true);
             set(newJob,'AttachedFiles',fileDependicies);
         end
         for i = 1:numTasks
@@ -232,7 +232,9 @@ if imsizes(1,1) < 1600 || imsizes(1,2) < 1600 || p.algorithm == 1
             alltasks
             outputMessages = get(alltasks, 'CommandWindowOutput');
         else
-            set(alltasks, 'CaptureDiary', true);
+            C(1:length(alltasks))={true};
+            set(alltasks, 'CaptureDiary', C);
+            clear C;
             %set(newJob, 'AttachedFiles', fileDependicies);
             %set(newJob, 'AutoAttachFiles', false);
             submit(newJob);
@@ -378,7 +380,7 @@ if l_p.algorithm ~= 1
         sched = parcluster();
         numTasks = sched.NumWorkers;
         newJob = createJob(sched);
-        set(newJob,'AutoAttachFiles', false);
+        set(newJob,'AutoAttachFiles', true);
         set(newJob,'AttachedFiles',fileDependicies);
     end
     maxWorkers = p.maxWorkers;
@@ -450,8 +452,10 @@ if l_p.algorithm ~= 1
             disp('Awaiting results')
             waitForState(newJob, 'finished');
             outputMessages = get(alltasks, 'CommandWindowOutput');
-        else
-            set(alltasks, 'CaptureDiary', true);
+       else
+            C(1:length(alltasks))={true};
+            set(alltasks, 'CaptureDiary', C);
+            clear C;
             %set(newJob, 'AttachedFiles', fileDependicies);
             %set(newJob, 'AutoAttachFiles', false);
             submit(newJob);
