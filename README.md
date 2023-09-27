@@ -1,3 +1,7 @@
+
+Fixes to Oufti so that it works on Matlab 2020b.
+
+
 # Oufti
  An integrated software package for high-accuracy, high-throughput quantitative microscopy analysis
 
