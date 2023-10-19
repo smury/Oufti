@@ -2515,6 +2515,8 @@ else
             if ps(1,1)<0 || ps(1,1)>imsizes(end,2) || ps(1,2)<0 || ps(1,2)>imsizes(end,1), return; end;
      
              warning('off','MATLAB:warn_r14_stucture_assignment')
+             
+             clear pos;
              pos.x = ps(1,1);
              pos.y = ps(1,2);
              %warning on
