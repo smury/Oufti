@@ -1,6 +1,7 @@
 Fixes to Oufti so that it works on Matlab 2020b.
 
 27.09.23: Fixed various issues to get segmentation working, incl. using multiple cores
+
 19.10.23: Fixed saving issue and inability to click on cells
 
 For further problems, please submit an issue and I'll try to get to it.
