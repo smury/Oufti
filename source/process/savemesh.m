@@ -31,8 +31,14 @@ try
     global p coefPCA weights mCell rawPhaseFolder cellList handles handles1 shiftframes shiftfluo %#ok<NUSED>
     cellListN = [];
     isMicroFluidic = get(handles.highThroughput,'value');
-    if isempty(filename), return; end
-    if isempty(listOfCells), return; end
+    if isempty(filename)
+        disp(['File ', filename, ' does not exist']);
+        return;
+    end
+    if isempty(listOfCells)
+        disp(['No specific cells to save, saving variables']);
+        %return; 
+    end
     if ~isfield(cellList,'meshData'),cellList = oufti_makeNewCellListFromOld(cellList);end
     cellListN = cellfun(@length,cellList.meshData);
     nonEmptyFrame = ~cellfun(@isempty,cellList.meshData);
