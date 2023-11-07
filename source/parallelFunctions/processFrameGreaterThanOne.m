@@ -204,7 +204,7 @@ if str2double(matlabVersion(1)) < 8
 else
     sched = parcluster(parallel.defaultClusterProfile); 
     newJob = createJob(sched);
-    set(newJob,'AutoAttachFiles', false);
+    set(newJob,'AutoAttachFiles', true);
     set(newJob,'AttachedFiles',fileDependicies);
     nTasks = sched.NumWorkers;
 end
